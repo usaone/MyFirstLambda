@@ -7,15 +7,20 @@ namespace MyFirstLambda;
 
 public class Function
 {
-    
+
     /// <summary>
     /// A simple function that takes a string and does a ToUpper
     /// </summary>
     /// <param name="input"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public string FunctionHandler(string input, ILambdaContext context)
+    public string FunctionHandler(MyData data, ILambdaContext context)
     {
-        return input.ToUpper();
+        return $"Hello {data.Name}".ToUpper();
     }
+}
+
+public class MyData
+{
+    public string Name { get; set; }
 }
