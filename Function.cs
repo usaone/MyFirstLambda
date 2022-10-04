@@ -19,8 +19,10 @@ public class Function
         return $"Hello {data.Name}".ToUpper();
     }
 
-    public string FunctionHandler2(ILambdaContext context)
+    public string FunctionHandler2(object o, ILambdaContext context)
     {
+        LambdaLogger.Log($"FunctionHandler2: Type of object o is {o.GetType()}\n");
+        LambdaLogger.Log($"Retuning");
         return $"Triggered from CloudWatch Rule";
     }
 }
